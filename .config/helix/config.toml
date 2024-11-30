@@ -1,0 +1,12 @@
+theme = "one_transparent"
+
+[editor]
+line-number = "relative"
+mouse = false
+popup-border = "all"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+C-y = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash $XDG_CONFIG_HOME/helix/yazi-picker.sh open"
