@@ -69,6 +69,16 @@ Append `Defaults insults` in the `/etc/sudoers`.
 $ EDITOR=helix sudo sudoedit
 ```
 
+### Git (VCS)
+
+```sh
+# Install Git Credential Manager
+$ paru -S git-credential-manager-bin
+
+# Set GCM as credential helper (globally)
+$ git config --global credential.helper manager
+```
+
 ### Helix (Text Editor)
 
 Refer to the following: [helix/docs](https://docs.helix-editor.com/lang-support.html), [helix/fmt](https://github.com/helix-editor/helix/wiki/External-formatter-configuration) and [helix/lsp](https://github.com/helix-editor/helix/wiki/Language-Server-Configurations).
