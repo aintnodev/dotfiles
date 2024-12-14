@@ -8,7 +8,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # load ohmyzsh plugins
 # zinit snippet OMZP::colorize
-zinit snippet OMZP::thefuck
+# zinit snippet OMZP::thefuck
 # zinit snippet OMZP::vi-mode
 
 # load remote plugins
@@ -59,5 +59,5 @@ setopt HIST_IGNORE_SPACE
 setopt INC_APPEND_HISTORY
 
 # load nvm annd nvm bash_completion
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
