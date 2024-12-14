@@ -1,12 +1,24 @@
 theme = "one_transparent"
 
 [editor]
-line-number = "relative"
 mouse = false
-popup-border = "all"
+shell = ["zsh", "-c"]
+line-number = "relative"
+auto-format = true
+completion-timeout = 5
+color-modes = true
 
-[editor.file-picker]
-hidden = false
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+display-inlay-hints = false
+
+[editor.cursor-shape]
+insert = "bar"
 
 [keys.normal]
-C-y = ":sh zellij run -c -f -x 10% -y 10% --width 80% --height 80% -- bash $XDG_CONFIG_HOME/helix/yazi-picker.sh open"
+esc = ["collapse_selection", "keep_primary_selection"]
