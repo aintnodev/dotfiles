@@ -2,3 +2,5 @@
 *.jpg
 *.jpeg
 .config/ohmyposh
+.config/yazi/flavors
+.config/yazi/plugins
