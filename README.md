@@ -106,6 +106,9 @@ Refer to the following: [yazi/resources](https://yazi-rs.github.io/docs/resource
 # Install the file manager
 $ paru -S yazi
 
+# Install all yazi plugins
+$ ya pack -i
+
 # Install the previewers
 $ paru -S p7zip ffmpegthumbnailer poppler chafa
 
