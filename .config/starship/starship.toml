@@ -58,7 +58,19 @@ symbol = " "
 symbol = " "
 
 [git_commit]
-tag_symbol = '  '
+tag_symbol = " "
+
+[git_status]
+conflicted = "="
+ahead = "↑"
+behind = "↓"
+diverged = "⇕"
+untracked = "?"
+stashed = "\\$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "×"
 
 [golang]
 symbol = " "
@@ -80,6 +92,7 @@ ssh_symbol = " "
 
 [java]
 symbol = " "
+style = "red"
 
 [julia]
 symbol = " "
