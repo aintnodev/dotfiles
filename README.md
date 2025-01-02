@@ -110,10 +110,10 @@ $ paru -S yazi
 $ ya pack -i
 
 # Install the previewers
-$ paru -S p7zip ffmpegthumbnailer poppler chafa
+$ paru -S p7zip ffmpegthumbnailer poppler imagemagick chafa
 
 # Install other utils
-$ paru -S fd ripgrep fzf
+$ paru -S fd ripgrep fzf zoxide
 ```
 
 ### ZSH (Shell)
