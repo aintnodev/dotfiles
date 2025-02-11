@@ -130,3 +130,19 @@ $ paru -S thefuck starship
 # Change default shell to ZSH (logout for changes to take effect)
 $ sudo chsh -s $(which zsh)
 ```
+
+#### User Apps
+
+```sh
+# Enable flatpaks in Arch Linux
+$ paru -S flatpak
+
+# Install the following flatpaks
+$ flatpak install flathub app.zen_browser.zen com.github.tchx84.Flatseal com.mattjakeman.ExtensionManager com.usebottles.bottles es.danirod.Cartero io.github.kelvinnovais.Kasasa it.mijorus.whisper me.iepure.devtoolbox net.pcsx2.PCSX2 org.localsend.localsend_app org.kde.KStyle.Adwaita org.kde.WaylandDecoration.QAdwaitaDecorations
+
+# Install the following GUI packages
+$ paru -S chromium discord foliate fragments gimp ghostty gnome-boxes gnome-calculator gnome-font-viewer gnome-logs impression kitty newsflash obfuscate obs-studio reapack reaper sws zed
+
+# Install the following TUI packages
+$ paru -S android-tools base-devel bat btop cowsay curl dust entr eza fastfetch fd figlet fzf git helix hexyl httpie lazygit lolcat macchina miller npm openssh ouch paru-bin pass reflector ripgrep starship stow thefuck tldr tmux trash-cli ttf-fira-code ttf-fira-sans wget yarn yazi yt-dlp zellij zoxide zsh
+```
