@@ -131,7 +131,7 @@ $ paru -S thefuck starship
 $ sudo chsh -s $(which zsh)
 ```
 
-#### User Apps
+### User Apps
 
 ```sh
 # Enable flatpaks in Arch Linux
