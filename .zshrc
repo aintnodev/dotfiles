@@ -51,3 +51,9 @@ y() {
   fi
   rm -f -- "$tmp"
 }
+
+za() {
+  local session="$(zellij ls | sed 's/\x1b\[[0-9;]*m//g' |
+    awk 'END {print $1}')"
+  zellij attach "$session"
+}
