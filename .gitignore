@@ -1,6 +1,8 @@
-*.png
-*.jpg
-*.jpeg
+.config/*.png
+.config/*.jpg
+.config/*.jpeg
 .config/ohmyposh
 .config/yazi/flavors
 .config/yazi/plugins
+.config/zsh/.zhistory
+.config/zsh/.zcompdump
