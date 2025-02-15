@@ -1,5 +1,24 @@
-[plugin]
-deps = [{ use = "Reledia/hexyl", rev = "39d3d4e" }, { use = "yazi-rs/plugins:full-border", rev = "62f0789" }, { use = "Rolv-Apneseth/starship", rev = "247f49d" }, { use = "Reledia/miller", rev = "40e0265" }]
+[[plugin.deps]]
+use = "Reledia/hexyl"
+rev = "39d3d4e"
+hash = "dd624cbaff94af65f39fd86bc57b340"
 
-[flavor]
-deps = [{ use = "BennyOe/onedark", rev = "fa1da70" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "62f0789"
+hash = "3a73613fc702a5f8369791b3401f52f1"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "247f49d"
+hash = "f450a5f0b5d067f1a749dcec92293615"
+
+[[plugin.deps]]
+use = "Reledia/miller"
+rev = "40e0265"
+hash = "2d6d77583162aaf0a599e7a3091b5878"
+
+[[flavor.deps]]
+use = "BennyOe/onedark"
+rev = "fa1da70"
+hash = "b644cb6471caf78333fc1b3940ba3ca9"
