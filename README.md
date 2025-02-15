@@ -144,5 +144,5 @@ $ flatpak install flathub app.zen_browser.zen com.github.tchx84.Flatseal com.mat
 $ paru -S chromium discord foliate fragments gimp ghostty gnome-boxes gnome-calculator gnome-font-viewer gnome-logs impression kitty newsflash obfuscate obs-studio reapack reaper sws zed
 
 # Install the following TUI packages
-$ paru -S android-tools base-devel bat btop cowsay curl dust entr eza fastfetch fd figlet fzf git helix hexyl httpie lazygit lolcat macchina miller npm openssh ouch paru-bin pass reflector ripgrep starship stow thefuck tldr tmux trash-cli ttf-fira-code ttf-fira-sans wget yarn yazi yt-dlp zellij zoxide zsh
+$ paru -S android-tools base-devel bat btop cowsay curl dust entr eza fd figlet fzf git helix hexyl httpie lazygit lolcat macchina miller npm openssh ouch paru-bin pass reflector ripgrep starship stow thefuck tldr tmux trash-cli ttf-fira-code ttf-fira-sans wget yarn yazi yt-dlp zellij zoxide zsh
 ```

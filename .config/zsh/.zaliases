@@ -4,7 +4,6 @@
 alias ls="eza --icons --group-directories-first"
 alias ll="eza --icons --group-directories-first -al"
 alias cat="bat --style=plain --paging=never"
-alias less="bat  --style=plain --paging=always"
 alias tree="eza --icons --tree --git-ignore --all"
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias top="btop"
@@ -14,7 +13,6 @@ alias se="EDITOR=$EDITOR sudoedit"
 alias vs="EDITOR=$EDITOR visudo"
 alias ytd="yt-dlp --no-mtime"
 alias hx=$EDITOR
-alias ff=fastfetch
 alias mc=macchina
 alias code=codium
 alias live=live-server
