@@ -16,13 +16,10 @@ zinit light zsh-users/zsh-completions
 autoload -Uz compinit && compinit
 zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
 
-# set zsh dotfile dir
-export ZDOTDIR=$HOME/.config/zsh
-
 # zsh configuration
 export HISTSIZE=100000
 export SAVEHIST=20000
-export HISTFILE="$ZDOTDIR/.zhistory"
+export HISTFILE="$HOME/.config/zsh/.zhistory"
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -32,9 +29,9 @@ setopt SHARE_HISTORY
 
 # source external files
 zinit ice wait lucid
-zinit snippet $ZDOTDIR/.zshenv
+zinit snippet $HOME/.config/zsh/.zshenv
 zinit ice wait lucid
-zinit snippet $ZDOTDIR/.zaliases
+zinit snippet $HOME/.config/zsh/.zaliases
 
 # starship
 eval "$(starship init zsh)"
