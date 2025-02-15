@@ -28,7 +28,8 @@ export ZED_WINDOW_DECORATIONS=server
 # define path for starship config
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
-BAT_THEME=TwoDark
+# use bat as a colorizing pager
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
 # set the localization
 # export LC_ALL=en_IN.UTF-8
