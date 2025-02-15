@@ -17,6 +17,10 @@ export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -printf %p:)%%:}"
 # add ~/.yarn/bin to $PATH
 export PATH="$(yarn global bin):$PATH"
 
+# add ~/go/bin to $PATH
+export GOPATH=$HOME/.go/bin
+export PATH="$GOPATH:$PATH"
+
 # zeditor native window decorations (make sure to edit
 # /usr/share/applications/dev.zed.Zed.desktop as well)
 export ZED_WINDOW_DECORATIONS=server
