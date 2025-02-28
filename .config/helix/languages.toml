@@ -11,6 +11,18 @@ language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 auto-format = true
 
 [[language]]
+name = "c"
+file-types = ["c", "h"]
+formatter = { command = 'clang-format' }
+auto-format = true
+
+[[language]]
+name = "cpp"
+file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
+formatter = { command = 'clang-format' }
+auto-format = true
+
+[[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
 language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
@@ -27,7 +39,7 @@ formatter = { command = 'prettier', args = ["--parser", "json"] }
 auto-format = true
 
 [[language]]
-name = "json"
+name = "jsonc"
 formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
 auto-format = true
 
