@@ -21,6 +21,10 @@ export PATH="$(yarn global bin):$PATH"
 export GOPATH=$HOME/.go/bin
 export PATH="$GOPATH:$PATH"
 
+# add pyenv to $PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # zeditor native window decorations (make sure to edit
 # /usr/share/applications/dev.zed.Zed.desktop as well)
 export ZED_WINDOW_DECORATIONS=server

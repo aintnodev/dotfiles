@@ -42,6 +42,9 @@ eval "$(fzf --zsh)"
 # replace cd with zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
+# pyenv
+eval "$(pyenv init - zsh)"
+
 # cd to folder when quitting yazi (terminal file manager)
 y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
