@@ -7,11 +7,13 @@ auto-format = true
 [[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 auto-format = true
 
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
 auto-format = true
 
 [[language]]
@@ -43,6 +45,10 @@ auto-format = true
 plugins.pylsp_mypy.enabled = true
 plugins.pylsp_mypy.live_mode = true
 
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
 [[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["format", "-"] }
@@ -51,6 +57,7 @@ auto-format = true
 [[language]]
 name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
 auto-format = true
 
 [[language]]

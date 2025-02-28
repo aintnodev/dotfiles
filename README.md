@@ -88,7 +88,7 @@ Refer to the following: [helix/docs](https://docs.helix-editor.com/lang-support.
 $ paru -S helix
 
 # Install the LSPs
-$ paru -S ansible-language-server bash-language-server clang gopls lua-language-server marksman python-lsp-server rust-analyzer taplo texlab typescript-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server
+$ paru -S ansible-language-server bash-language-server clang gopls lua-language-server marksman python-lsp-server rust-analyzer tailwindcss-language-server taplo texlab typescript-language-server vscode-css-languageserver vscode-html-languageserver vscode-json-languageserver yaml-language-server
 
 # Install the formatters
 $ paru -S prettier shfmt
