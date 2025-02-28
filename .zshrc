@@ -55,8 +55,16 @@ y() {
   rm -f -- "$tmp"
 }
 
+# open a given session in zellij if present, open latest if not or create new
 za() {
-  local session="$(zellij ls | sed 's/\x1b\[[0-9;]*m//g' |
-    awk 'END {print $1}')"
-  zellij attach "$session"
+  if [[ $# -eq 1 ]]; then
+    zellij attach "$1"
+  else
+    local session="$(zellij ls | sed 's/\x1b\[[0-9;]*m//g' | awk 'END {print $1}')"
+    if [[ -n "$session" ]]; then
+      zellij attach "$session"
+    else
+      zellij -l welcome
+    fi
+  fi
 }
