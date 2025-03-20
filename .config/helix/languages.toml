@@ -2,56 +2,46 @@
 name = "bash"
 indent = { tab-width = 2, unit = "  " }
 formatter = { command = 'shfmt', args = ["-i", "2"] }
-auto-format = true
 
 [[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
 language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
-auto-format = true
 
 [[language]]
 name = "c"
 file-types = ["c", "h"]
 formatter = { command = 'clang-format' }
-auto-format = true
 
 [[language]]
 name = "cpp"
 file-types = ["cpp", "cc", "cxx", "hpp", "hcc", "hxx"]
 formatter = { command = 'clang-format' }
-auto-format = true
 
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
 language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
-auto-format = true
 
 [[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-auto-format = true
 
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--parser", "json"] }
-auto-format = true
 
 [[language]]
 name = "jsonc"
 formatter = { command = 'prettier', args = ["--parser", "jsonc"] }
-auto-format = true
 
 [[language]]
 name = "markdown"
 formatter = { command = 'prettier', args = ["--parser", "markdown"] }
-auto-format = true
 
 [[language]]
 name = "python"
 formatter = { command = "black", args = ["--quiet", "-"] }
-auto-format = true
 
 [language-server.pylsp.config.pylsp]
 plugins.pylsp_mypy.enabled = true
@@ -64,20 +54,16 @@ args = ["--stdio"]
 [[language]]
 name = "toml"
 formatter = { command = "taplo", args = ["format", "-"] }
-auto-format = true
 
 [[language]]
 name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 language-servers = ["typescript-language-server", "tailwindcss-ls"]
-auto-format = true
 
 [[language]]
 name = "typescript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-auto-format = true
 
 [[language]]
 name = "yaml"
 formatter = { command = 'prettier', args = ["--parser", "yaml"] }
-auto-format = true
