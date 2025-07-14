@@ -18,7 +18,7 @@
   ;; Note: consider using different time values for your different fingers.
   ;; For example, your pinkies might be slower to release keys and index
   ;; fingers faster.
-  tap-time 200
+  tap-time 100
   hold-time 200
 
   left-hand-keys (
@@ -66,5 +66,5 @@
   k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rctl $right-hand-keys)
   l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) ralt $right-hand-keys)
   ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rmet $right-hand-keys)
-  v (tap-hold-press $tap-time $hold-time v (layer-toggle nav))
+  v (tap-hold-release $tap-time $hold-time v (layer-toggle nav))
 )

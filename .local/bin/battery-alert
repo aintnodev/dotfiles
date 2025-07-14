@@ -1,0 +1,72 @@
+#!/bin/sh
+
+# Send a notification if the laptop battery is either low or is fully charged.
+# Set on a systemd timer (~/.config/systemd/user/battery-alert.timer).
+
+# src: https://github.com/ericmurphyxyz/dotfiles/.local/bin/battery-alert
+
+export DISPLAY=:0
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
+
+# Battery percentage at which to notify
+WARNING_LEVEL=30
+CRITICAL_LEVEL=15
+
+# Get battery information
+BAT_PATH="/sys/class/power_supply/BAT0"
+BAT_LEVEL=$(cat "$BAT_PATH/capacity")
+
+# Get battery charging status
+if [ "$(cat "$BAT_PATH/status")" = "Discharging" ]; then
+  BAT_DISCHARGING=1
+else
+  BAT_DISCHARGING=0
+fi
+
+# Use files to store whether we've shown a notification or not (to prevent multiple notifications)
+FULL_FILE=/tmp/batteryfull
+LOW_FILE=/tmp/batterylow
+CRITICAL_FILE=/tmp/batterycritical
+
+# Reset notifications if the computer is charging/discharging
+if [ "$BAT_DISCHARGING" -eq 1 ] && [ -f "$FULL_FILE" ]; then
+  rm "$FULL_FILE"
+elif [ "$BAT_LEVEL" -gt "$CRITICAL_LEVEL" ] && [ -f "$CRITICAL_LEVEL" ]; then
+  powerprofilesctl set balanced
+  rm "$CRITICAL_FILE"
+elif [ "$BAT_LEVEL" -gt "$WARNING_LEVEL" ] && [ -f "$LOW_FILE" ]; then
+  powerprofilesctl set balanced
+  rm "$LOW_FILE"
+fi
+
+# If the battery is charging and is full (and has not shown notification yet)
+if [ "$BAT_LEVEL" -gt 99 ] && [ "$BAT_DISCHARGING" -eq 0 ] && [ ! -f "$FULL_FILE" ]; then
+  notify-send "Battery Charged" \
+    "Battery is fully charged." \
+    -i "battery-full" \
+    -h int:transient:1 \
+    -h string:x-canonical-private-synchronous:batteryalert
+  touch "$FULL_FILE"
+
+# If the battery is critical and is not charging (and has not shown notification yet)
+elif [ "$BAT_LEVEL" -le "$CRITICAL_LEVEL" ] && [ "$BAT_DISCHARGING" -eq 1 ] && [ ! -f "$CRITICAL_FILE" ]; then
+  notify-send "Battery Critical" \
+    "The computer will shutdown soon." \
+    -u critical \
+    -i "battery-empty" \
+    -h int:transient:1 \
+    -h string:x-canonical-private-synchronous:batteryalert
+  powerprofilesctl set power-saver
+  touch "$CRITICAL_FILE"
+
+# If the battery is low and is not charging (and has not shown notification yet)
+elif [ "$BAT_LEVEL" -le "$WARNING_LEVEL" ] && [ "$BAT_DISCHARGING" -eq 1 ] && [ ! -f "$LOW_FILE" ]; then
+  notify-send "Low Battery" \
+    "${BAT_LEVEL}% of battery remaining." \
+    -i "battery-caution" \
+    -h int:transient:1 \
+    -h string:x-canonical-private-synchronous:batteryalert
+  powerprofilesctl set balanced
+  touch "$LOW_FILE"
+fi

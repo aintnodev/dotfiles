@@ -1,0 +1,12 @@
+current_shell = true
+physical_cores = true
+theme = "theme"
+show = [
+  "Host",
+  "Kernel",
+  "Distribution",
+  "WindowManager",
+  "Packages",
+  "Shell",
+  "Uptime",
+]

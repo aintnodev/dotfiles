@@ -1,0 +1,57 @@
+#!/bin/sh
+
+case "$1" in
+shutdown)
+  TITLE="Shutdown Confirmation"
+  TEXT="Shutdown now?"
+  ICON="system-shutdown"
+  EXEC="systemctl poweroff"
+  ;;
+reboot)
+  TITLE="Reboot Confirmation"
+  TEXT="Restart now?"
+  ICON="system-reboot"
+  EXEC="systemctl reboot"
+  ;;
+logout)
+  TITLE="Logout Confirmation"
+  TEXT="Quit all applications and log out now?"
+  ICON="system-log-out"
+  EXEC="uwsm stop"
+  ;;
+*)
+  echo "Usage: $(basename "$0") {shutdown|reboot|logout}"
+  exit 1
+  ;;
+esac
+
+if hyprctl layers | grep -q "swaync-control-center"; then
+  SWAYNC_OPEN=1
+  swaync-client -t
+else
+  SWAYNC_OPEN=0
+fi
+
+zenity --question \
+  --title="$TITLE" \
+  --text="$TEXT" \
+  --ok-label="Confirm" \
+  --cancel-label="Cancel" \
+  --icon="$ICON" \
+  --width=300
+
+res=$?
+
+if [ "$res" -eq 0 ]; then
+  $(sh -c "$EXEC")
+else
+  NOTIFY_TEXT=$(echo "$TITLE" | awk '{print $1}')
+  notify-send "$NOTIFY_TEXT Cancelled" "$NOTIFY_TEXT was cancelled." \
+    -i dialog-information \
+    -h int:transient:1 \
+    -h string:x-canonical-private-synchronous:confirmcmd
+
+  if [ "$SWAYNC_OPEN" -eq 1 ]; then
+    swaync-client -t
+  fi
+fi

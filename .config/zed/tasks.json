@@ -1,0 +1,16 @@
+[
+  {
+    "label": "Run code",
+    "command": "$HOME/.local/bin/code-runner",
+    "cwd": "$ZED_DIRNAME",
+    "show_summary": false,
+    "show_command": false
+  },
+  {
+    "label": "Start live server",
+    "command": "live-server",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "show_summary": false,
+    "show_command": false
+  }
+]

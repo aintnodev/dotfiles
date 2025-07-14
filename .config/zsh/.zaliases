@@ -18,6 +18,7 @@ alias code=codium
 alias live=live-server
 alias trp="trash-put"
 alias trr="trash-restore"
+alias zn="zellij -l welcome"
 
 # git aliases
 alias gst="git status"

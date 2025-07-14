@@ -1,7 +1,7 @@
 #!/usr/env zsh
 
 # install plugin manager
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
@@ -19,7 +19,7 @@ zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
 # zsh configuration
 export HISTSIZE=100000
 export SAVEHIST=20000
-export HISTFILE="$HOME/.config/zsh/.zhistory"
+export HISTFILE="$XDG_CONFIG_HOME/zsh/.zhistory"
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -29,9 +29,9 @@ setopt SHARE_HISTORY
 
 # source external files
 zinit ice wait lucid
-zinit snippet $HOME/.config/zsh/.zshenv
+zinit snippet $XDG_CONFIG_HOME/zsh/.zshenv
 zinit ice wait lucid
-zinit snippet $HOME/.config/zsh/.zaliases
+zinit snippet $XDG_CONFIG_HOME/zsh/.zaliases
 
 # starship
 eval "$(starship init zsh)"
@@ -39,11 +39,11 @@ eval "$(starship init zsh)"
 # fzf
 eval "$(fzf --zsh)"
 
+# navi
+eval "$(navi widget zsh)"
+
 # replace cd with zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# pyenv
-eval "$(pyenv init - zsh)"
 
 # cd to folder when quitting yazi (terminal file manager)
 y() {
@@ -54,6 +54,12 @@ y() {
   fi
   rm -f -- "$tmp"
 }
+
+ZJLAYOUT="$HOME/.local/bin/zjstatus.wasm"
+if [[ ! -f "$ZJLAYOUT" ]]; then
+  VERSION=$(curl -s "https://api.github.com/repos/dj95/zjstatus/releases/latest" | grep -oP '"tag_name": "\K(.*)(?=")')
+  curl -L -o "$ZJLAYOUT" "https://github.com/dj95/zjstatus/releases/download/$VERSION/zjstatus.wasm"
+fi
 
 # open a given session in zellij if present, open latest if not or create new
 za() {

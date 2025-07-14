@@ -1,0 +1,24 @@
+#!/bin/sh
+
+notify() {
+  notify-send "Power Profile" "$1" \
+    -h int:transient:1 -h string:x-canonical-private-synchronous:powerprofile\
+    -i dialog-information -u low
+}
+
+PROFILE=$(powerprofilesctl get)
+
+case $PROFILE in
+power-saver)
+  sh -c "$(powerprofilesctl set balanced)"
+  notify "Switched to balanced mode"
+  ;;
+balanced)
+  sh -c "$(powerprofilesctl set performance)"
+  notify "Switched to performance mode"
+  ;;
+performance)
+  sh -c "$(powerprofilesctl set power-saver)"
+  notify "Switched to power saver mode"
+  ;;
+esac
