@@ -1,0 +1,4 @@
+Config(
+  prefix: ":df",
+  max_entries: 4,
+)

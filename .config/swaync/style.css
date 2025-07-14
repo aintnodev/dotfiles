@@ -1,0 +1,347 @@
+* {
+  all: unset;
+  font-size: 14px;
+  transition: 200ms;
+  box-shadow: none;
+}
+
+/* trough highlight { */
+/* background: #e7e7e7; */
+/* } */
+
+/* scale trough { */
+/* margin: 0rem 1rem; */
+/* background-color: #282c34; */
+/* min-height: 8px; */
+/* } */
+
+/* slider { */
+/* background-color: #61afef; */
+/* } */
+
+/* floating notification outer*/
+.floating-notifications.background .notification-row .notification-background {
+  border-radius: 2px;
+  border: 1px solid #3e4451;
+  /* space b/w notfications */
+  margin: 4px;
+  background-color: #1b1b1b;
+  color: #e7e7e7;
+}
+
+/* floating notification inner*/
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification {
+  padding: 8px;
+  border-radius: 2px;
+}
+
+/* floating notification critical */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border-left: 2px solid #e9969d;
+}
+
+/* floating notification padding */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  margin: 6px 8px;
+}
+
+/* floating notification title */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  color: #e7e7e7;
+}
+
+/* floating notification body */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  color: #abb2bf;
+}
+
+/* floating notification image */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .image {
+  padding-right: 12px;
+}
+
+/* floating notification close button */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+  margin: 8px;
+  padding: 2px;
+  color: #1b1b1b;
+  background-color: #e9969d;
+  border-radius: 2px;
+}
+
+/* floating notification close button hover */
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
+  background-color: #e06c75;
+}
+
+/* main control center window */
+.control-center {
+  padding: 14px;
+  color: #e7e7e7;
+  background-color: #1b1b1b;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 0 rgba(27, 27, 27, 0.3);
+}
+
+/* "Notifications" title division */
+.control-center .widget-title {
+  margin-bottom: 12px;
+}
+
+/* "Notifications" title */
+.control-center .widget-title > label {
+  font-size: 18px;
+}
+
+/* "Clear All" button */
+.control-center .widget-title button {
+  font-size: 12px;
+  padding: 6px 10px;
+  background-color: #252525;
+  border-radius: 2px;
+}
+
+/* "Clear All" button hover */
+.control-center .widget-title button:hover {
+  background-color: #3e4451;
+}
+
+/* notification group title */
+.notification-group-header {
+  margin-left: 6px;
+}
+
+/* control center notification outer */
+.control-center .notification-row .notification-background {
+  margin-top: 12px;
+  color: #e7e7e7;
+  background-color: #252525;
+  border-radius: 2px;
+  border: 1px solid #3e4451;
+  box-shadow: none;
+}
+
+/* control center notification inner */
+.control-center .notification-row .notification-background .notification {
+  padding: 8px;
+}
+
+/* control center notification critical */
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border-left: 2px solid #e9969d;
+}
+
+/* control center notification content */
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  margin: 8px;
+}
+
+/* control center notification title */
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  color: #e7e7e7;
+}
+
+/* control center notification time */
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .time {
+  font-size: 12px;
+  color: #c8cdd5;
+}
+
+/* control center notification body */
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  color: #c8cdd5;
+}
+
+/* control center notification image */
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .image {
+  padding-right: 12px;
+}
+
+/* control center notification close button */
+.control-center .notification-row .notification-background .close-button {
+  opacity: 0;
+}
+
+/* critical notification progress */
+.notification.critical progress {
+  background-color: #e06c75;
+}
+
+/* low notification progress */
+.notification.low progress {
+  background-color: #e5c07b;
+}
+
+/* normal notification progress */
+.notification.normal progress {
+  background-color: #61afef;
+}
+
+/* dnd top margin */
+.control-center-dnd {
+  margin: 6px 0;
+}
+
+/* dnd slider background */
+.widget-dnd > switch {
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid #45475a;
+}
+
+/* dnd slider */
+.widget-dnd > switch slider {
+  background: #252525;
+  border-radius: 2px;
+  border-right: 1px solid #3e4451;
+  transition: none;
+}
+
+/* dnd slider checked */
+.widget-dnd > switch slider:checked {
+  border-right: none;
+  border-left: 1px solid #3e4451;
+}
+
+/* music player widget parent */
+.widget-mpris {
+  margin-top: 12px;
+}
+
+/* music player widget */
+.widget-mpris .widget-mpris-player {
+  /* margin-top: 12px; */
+  padding: 12px;
+  background-color: rgba(27, 27, 27, 0.9);
+}
+
+/* music player widget song name */
+.widget-mpris .widget-mpris-title {
+  font-size: 15px;
+}
+
+/* music player widget artist name */
+.widget-mpris .widget-mpris-subtitle {
+  font-size: 13px;
+}
+
+/* .widget-menubar > box > .menu-button-bar > button > label { */
+/* font-size: 3rem; */
+/* padding: 0.5rem 2rem; */
+/* } */
+
+/* .widget-menubar > box > .menu-button-bar > :last-child { */
+/* color: #e9969d; */
+/* } */
+
+/* .power-buttons button:hover, */
+/* .powermode-buttons button:hover, */
+/* .screenshot-buttons button:hover { */
+/* background: #282c34; */
+/* } */
+
+/* .control-center .widget-label > label { */
+/* color: #e7e7e7; */
+/* font-size: 2rem; */
+/* } */
+
+.widget-buttons-grid {
+  padding: 6px;
+  border: 1px solid #282c34;
+}
+
+.widget-buttons-grid .text-button {
+  font-size: 18px;
+  margin: 6px;
+  padding: 12px 50px;
+  background: #252525;
+  border-radius: 2px;
+}
+
+.widget-buttons-grid .text-button:hover {
+  background: #3e4451;
+}
+
+/* .widget-volume { */
+/* padding-top: 1rem; */
+/* } */
+
+/* .widget-volume label { */
+/* font-size: 1.5rem; */
+/* color: #74c7ec; */
+/* } */
+
+/* .widget-volume trough highlight { */
+/* background: #74c7ec; */
+/* } */
+
+/* .widget-backlight trough highlight { */
+/* background: #f9e2af; */
+/* } */
+
+/* .widget-backlight label { */
+/* font-size: 1.5rem; */
+/* color: #f9e2af; */
+/* } */
+
+/* .widget-backlight .KB { */
+/* padding-bottom: 1rem; */
+/* } */

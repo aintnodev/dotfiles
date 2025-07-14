@@ -1,0 +1,107 @@
+{
+  "layer": "top",
+  "height": 32,
+  "spacing": 2,
+  "reload_style_on_change": true,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "custom/kanata",
+    "wireplumber",
+    "network",
+    "battery",
+    "bluetooth",
+    "custom/notifications"
+  ],
+
+  "clock": {
+    "format": "{:%d %b, %H:%M}",
+    "tooltip-format": "{:%A, %B %d, %Y}"
+  },
+
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "󰂄",
+    "format-warning": "󰂃",
+    "tooltip-format": "{capacity}% remaining\n{timeTo}",
+    "max-length": 25,
+    "on-click": "cosmic-settings power"
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-off": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
+    "on-click": "~/.config/waybar/modules/bluetooth-toggle",
+    "on-click-middle": "cosmic-settings bluetooth"
+  },
+
+  "hyprland/window": {
+    "separate-outputs": true,
+    "max-length": 50
+  },
+
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": 6
+    }
+  },
+
+  "network": {
+    "interface": "wlp2s0",
+    "format": "󰤭",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "format-disconnected": "󰤠",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid}\t{signalStrength}%",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "max-length": 50,
+    "on-click": "~/.config/waybar/modules/network-toggle",
+    "on-click-middle": "cosmic-settings wireless"
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
+  },
+
+  "wireplumber": {
+    "format": "{icon}",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "default": ["", "", "󰕾"]
+    },
+    "max-volume": 100,
+    "scroll-step": 1,
+    "tooltip-format": "{node_name}\t{volume}%",
+    "on-click": "swayosd-client --output-volume mute-toggle",
+    "on-click-middle": "cosmic-settings sound"
+  },
+
+  "custom/notifications": {
+    "format": "󰂚",
+    "tooltip": false,
+    "on-click": "swaync-client -t"
+  },
+
+  "custom/kanata": {
+    "exec": "~/.config/waybar/modules/kanata-status",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "~/.config/waybar/modules/kanata-toggle"
+  }
+}

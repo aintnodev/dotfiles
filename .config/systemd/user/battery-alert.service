@@ -1,0 +1,9 @@
+[Unit]
+Description=Battery alert service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/battery-alert
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,60 @@
+#window {
+  background: transparent;
+}
+
+box#main {
+  background: rgba(27, 27, 27, 0.9);
+  border-radius: 2px;
+  border: 2px solid #282c34;
+}
+
+entry#entry {
+  background: transparent;
+  border-radius: 2px;
+  border: 2px solid #282c34;
+  box-shadow: none;
+  padding: 2px 8px;
+}
+
+list#main {
+  background: transparent;
+}
+
+#plugin {
+  border: 1px solid #282c34;
+  background: transparent;
+}
+
+#match {
+  padding: 2px;
+}
+
+#match:selected {
+  background: #282c34;
+  border-radius: 2px;
+}
+
+/* #match:hover { */
+/* background: transparent; */
+/* } */
+
+#match:selected label#info {
+  color: #b0b0b0;
+}
+
+/* #match label#info { */
+/* color: transparent; */
+/* } */
+
+/* label#match-title { */
+/* } */
+
+label#match-desc {
+  font-size: 10px;
+  font-style: italic;
+  color: #5c6370;
+}
+
+label#plugin {
+  font-size: 14px;
+}

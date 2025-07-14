@@ -1,0 +1,9 @@
+#!/bin/sh
+
+STATUS=$(systemctl --user is-active kanata.service)
+
+if [ "$STATUS" = "active" ]; then
+  echo '{"text": "󰌌", "tooltip": "Kanata is running"}'
+else
+  echo '{"text": "󰌐", "tooltip": "Kanata is stopped", "class": "inactive"}'
+fi

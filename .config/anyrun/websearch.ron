@@ -1,0 +1,7 @@
+Config(
+  prefix: "?",
+  engines: [DuckDuckGo, Google, Custom(
+    name: "YouTube",
+    url: "youtube.com/results?search_query={}",
+  )] 
+)

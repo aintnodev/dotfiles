@@ -1,0 +1,18 @@
+#!/bin/sh
+
+KANATA_STATUS=$(systemctl --user is-active kanata.service)
+
+if [ "$KANATA_STATUS" = "active" ]; then
+  systemctl --user stop kanata.service
+  notify-send "Kanata" "Stopped kanata.service." \
+    -i "input-keyboard" \
+    -h int:transient:1 \
+    -h string:x-canonical-private-synchronous:kanatatoggle
+
+else
+  systemctl --user start kanata.service
+  notify-send "Kanata" "Started kanata.service." \
+    -i "input-keyboard" \
+    -h int:transient:1 \
+    -h string:x-canonical-private-synchronous:kanatatoggle
+fi
