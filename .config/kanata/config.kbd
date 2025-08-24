@@ -1,70 +1,59 @@
-;; Home row mods QWERTY example with more complexity.
-;; Some of the changes from the basic example:
-;; - when a home row mod activates tap, the home row mods are disabled
-;;   while continuing to type rapidly
-;; - tap-hold-release helps make the hold action more responsive
-;; - pressing another key on the same half of the keyboard
-;;   as the home row mod will activate an early tap action
-
 (defcfg
   process-unmapped-keys yes
 )
 (defsrc
-  caps  a   s   d   f   g   h   j   k   l   ;
-  v
-  spc
+  caps a  s  d  f  g  h  j  k  l  ;
+  lsft           v           ,  .
+  lctl            spc
 )
 (defvar
-  ;; Note: consider using different time values for your different fingers.
-  ;; For example, your pinkies might be slower to release keys and index
-  ;; fingers faster.
-  tap-time 100
-  hold-time 200
-
-  left-hand-keys (
-    q w e r t
-    a s d f g
-    z x c v b
-  )
-  right-hand-keys (
-    y u i o p
-    h j k l ;
-    n m , . /
-  )
+  tap-time 200
+  hold-time 150
 )
-(deflayer base
-  esc  @a  @s  @d  @f  _ _  @j  @k  @l  @;
-  @v
-  spc
+(deflayermap (base)
+  caps @caps
+  a @a
+  s @s
+  d @d
+  f @f
+  j @j
+  k @k
+  l @l
+  ; @;
+  v @v
 )
-
-(deflayer nav
-  esc @a @s @d @f  _  left down up right ;
-  v
-  bspc
+(deflayermap (nomods)
+  caps @caps
 )
-
-(deflayer nomods
-  esc  a   s   d   f   _ _   j   k   l   ;
-  v
-  spc
+(deflayermap (vi)
+  caps esc
+  a @a
+  s @s
+  d @d
+  f @f
+  h left
+  j down
+  k up
+  l right
+  spc bspc
 )
-(deffakekeys
-  to-base (layer-switch base)
+(deflayermap (switch)
+  caps @caps
+  , @,
+  . @.
 )
 (defalias
-  tap (multi
-    (layer-switch nomods)
-    (on-idle-fakekey to-base tap 20)
-  )
+  , (layer-switch base)
+  . (layer-switch nomods)
 
-  a (tap-hold-release-keys $tap-time $hold-time (multi a @tap) lmet $left-hand-keys)
-  s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) lalt $left-hand-keys)
-  d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lctl $left-hand-keys)
-  f (tap-hold-release-keys $tap-time $hold-time (multi f @tap) lsft $left-hand-keys)
-  j (tap-hold-release-keys $tap-time $hold-time (multi j @tap) rsft $right-hand-keys)
-  k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rctl $right-hand-keys)
-  l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) ralt $right-hand-keys)
-  ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rmet $right-hand-keys)
-  v (tap-hold-release $tap-time $hold-time v (layer-toggle nav))
+  caps (tap-hold $tap-time $hold-time esc (layer-while-held switch))
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lctl)
+  f (tap-hold $tap-time $hold-time f lsft)
+  j (tap-hold $tap-time $hold-time j rsft)
+  k (tap-hold $tap-time $hold-time k rctl)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
+  v (tap-hold $tap-time $hold-time v (layer-while-held vi))
 )
